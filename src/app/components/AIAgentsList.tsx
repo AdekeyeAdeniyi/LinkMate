@@ -18,7 +18,7 @@ const AIAgentSidebar: React.FC<AIAgentSidebarProps> = ({ isCollapsed, setIsColla
 
     // Cleanup
     return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
+  }, [setIsCollapsed]);
 
   return (
     <div className={`${isCollapsed ? "w-16 md:w-20" : "w-80"} absolute top-0 bottom-0 left-0 bg-gray-100 border-r border-gray-200 flex flex-col h-full transition-all duration-300 ease-in-out z-30`}>

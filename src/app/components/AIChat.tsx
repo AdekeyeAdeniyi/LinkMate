@@ -1,6 +1,6 @@
 "use client";
-import { createContext, useCallback, useEffect, useRef, useState } from "react";
-import { AI_RESPONSES, ChatSettings, languages, Message } from "./types";
+import { useCallback, useState } from "react";
+import { ChatSettings, languages } from "./types";
 import ChatHeader from "./ChatHeader";
 import ChatContainer from "./ChatContainer";
 import StatusBar from "./StatusBar";
@@ -17,11 +17,11 @@ const AIChat: React.FC = () => {
 
   // ==================== STATE MANAGEMENT ====================
   const [currentLanguage, setCurrentLanguage] = useState<string>("en");
-  const [error, setError] = useState<string | null>(null);
+  const [_, setError] = useState<string | null>(null);
 
   const [inputText, setInputText] = useState<string>("");
   const [isTyping, setIsTyping] = useState<boolean>(false);
-  const [isRecording, setIsRecording] = useState<boolean>(false);
+  const [isRecording] = useState<boolean>(false);
   const [isDark, setIsDark] = useState<boolean>(false);
   const [showSettings, setShowSettings] = useState<boolean>(false);
   const [settings, setSettings] = useState<ChatSettings>({
@@ -39,7 +39,7 @@ const AIChat: React.FC = () => {
    */
   const toggleTheme = useCallback((): void => {
     setIsDark((prev) => !prev);
-  }, []);
+  }, [setIsDark]);
 
   /**
    * Cycles through available languages

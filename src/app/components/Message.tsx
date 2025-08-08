@@ -10,7 +10,7 @@ const Message: React.FC<MessageProps> = ({ handlerScroll, isDark, fontSize, onSp
   const { selectedReplica } = useReplicaContext();
   const { message, clearMessages } = useLiveChatContext();
 
-  const [error, setError] = useState<string | null>(null);
+  const [_, setError] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[] | []>([]);
 
   useEffect(() => {
@@ -28,14 +28,14 @@ const Message: React.FC<MessageProps> = ({ handlerScroll, isDark, fontSize, onSp
     };
 
     fetchReplicas();
-  }, [selectedReplica?.uuid]);
+  }, [selectedReplica, handlerScroll]);
 
   useEffect(() => {
     if (message) {
       setMessages((prev) => [...prev, message]);
       clearMessages();
     }
-  }, [message]);
+  }, [message, clearMessages]);
 
   return (
     <>

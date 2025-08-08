@@ -1,4 +1,6 @@
-# LinkMateAI Chatbot with Next.js and Sensay API 🤖💬
+# LinkMateAI Chatbot with Next.js and Sensay API
+
+![Alt Text](/public/logo.png)
 
 ## Project Overview
 
